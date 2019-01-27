@@ -16,12 +16,17 @@ public class ThoughtsManager : MonoBehaviour
 
     public static ThoughtsManager Instance;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         Instance = this;
         OnThoughtSpawned += UpdateThought;
         OnThoughtDespawned += UpdateThought;
+    }
+
+    private void OnDisable()
+    {
+        OnThoughtSpawned -= UpdateThought;
+        OnThoughtDespawned -= UpdateThought;
     }
 
     private void UpdateThought(GameObject thought, bool active)
@@ -32,6 +37,7 @@ public class ThoughtsManager : MonoBehaviour
         }
         else
         {
+            thought.SetActive(false);
             ActiveThoughts.Remove(thought);
         }
 

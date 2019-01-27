@@ -57,10 +57,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AddMushroomToPot.cs" />
     <Compile Include="Assets\DoorVisibility.cs" />
     <Compile Include="Assets\FreeRoamState.cs" />
+    <Compile Include="Assets\HeldItemSlot.cs" />
+    <Compile Include="Assets\Mushroom.cs" />
     <Compile Include="Assets\PickableItem.cs" />
+    <Compile Include="Assets\PickupObjectThought.cs" />
     <Compile Include="Assets\Pot.cs" />
+    <Compile Include="Assets\Potion.cs" />
     <Compile Include="Assets\Shelf.cs" />
     <Compile Include="Assets\ThoughtGenerator.cs" />
     <Compile Include="Assets\ThoughtShaker.cs" />

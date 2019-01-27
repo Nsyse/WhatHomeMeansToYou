@@ -1,3 +1,6 @@
-public class PickableItem
+using UnityEngine;
+
+public abstract class PickableItem : MonoBehaviour
 {
+    
 }

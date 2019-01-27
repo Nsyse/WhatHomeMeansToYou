@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class Varianne : MonoBehaviour
 {
+    public static Varianne Instance;
+    
     public int Speed = 0;
     
     private int leftRightIntent = 0;
     private int upDownIntent = 0;
     
     private VarianneState CurrentState = new FreeRoamState();
+    private HeldItemSlot HeldItem;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instance = this;
+        HeldItem = GetComponentInChildren<HeldItemSlot>();
     }
 
     // Update is called once per frame
@@ -31,7 +35,7 @@ public class Varianne : MonoBehaviour
     }
 
     private void RegisterInputIntents()
-    {
+    {   
         leftRightIntent = 0;
         
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -53,5 +57,15 @@ public class Varianne : MonoBehaviour
         {
             upDownIntent++;
         }
+    }
+
+    public bool IsHolding<T>()
+    {
+        return HeldItem.GetComponentInChildren<T>()!=null;
+    }
+
+    public void DestroyHeldItem()
+    {
+        GameObject.Destroy(HeldItem.GetComponentInChildren<PickableItem>().gameObject);
     }
 }

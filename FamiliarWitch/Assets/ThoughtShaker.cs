@@ -8,10 +8,11 @@ public class ThoughtShaker : MonoBehaviour
     [SerializeField] private float maxOffset = 0;
     [SerializeField] private float MaxRotation;
     [SerializeField] float rotationDelay = 0;
-
+    [SerializeField]
+    private float StartingRotationZ = -7;
+    
     private float nextRotationTime = 0;
     private Vector2 StartingPosition;
-    private float StartingRotationZ = 0;
     private Vector2 TargetPosition;
     private float TargetRotation;
 
@@ -19,6 +20,7 @@ public class ThoughtShaker : MonoBehaviour
     {
         StartingPosition = gameObject.transform.position;
         TargetPosition = StartingPosition;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, StartingRotationZ);
     }
 
     private void OnEnable()
